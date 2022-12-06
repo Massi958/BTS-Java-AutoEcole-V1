@@ -1,0 +1,17 @@
+Index: src/Vues/FrmEleve.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Vues/FrmEleve.java b/src/Vues/FrmEleve.java
+--- a/src/Vues/FrmEleve.java	
++++ b/src/Vues/FrmEleve.java	(date 1669805019654)
+@@ -68,7 +68,7 @@
+             @Override
+             public void mouseClicked(MouseEvent e) {
+                 super.mouseClicked(e);
+-                FrmElevePlanning frm = new FrmElevePlanning(unUser);
++                FrmPlanning frm = new FrmPlanning(unUser);
+                 frm.setVisible(true);
+             }
+         });
