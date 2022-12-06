@@ -33,9 +33,9 @@ public class ModelJTable extends AbstractTableModel {
     public  void loadDatasPlanning(ArrayList<Planning> lePlanning,Users unUser){
         ctrlUser = new CtrlUser();
         if (unUser.getStatut().equals("moniteur")){
-            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "code Lecon","Eleve"};
+            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Eleve"};
         }else{
-            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "code Lecon","Moniteur"};
+            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Moniteur"};
         }
 
         rows = new Object[lePlanning.size()][4];
@@ -43,7 +43,7 @@ public class ModelJTable extends AbstractTableModel {
         for (Planning planning: lePlanning){
             rows[i][0] = planning.getDatePlanning();
             rows[i][1] = planning.getHeurePlanning();
-            rows[i][2] = planning.getCodeLecon();
+            rows[i][2] = ctrlUser.GetVehiculeByCodeLecon(planning.getCodeLecon());
             rows[i][3] = ctrlUser.GetPrenomByCodeLecon(unUser.getCodeUser(),planning.getCodeLecon());
 
             i++;

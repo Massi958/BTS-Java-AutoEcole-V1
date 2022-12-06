@@ -115,6 +115,29 @@ public class CtrlUser {
         }
         return Prenom;
     }
+    public String GetVehiculeByCodeLecon(String codeLecon)
+    {
+        String Vehicule = "";
+        String Immatriculation = "";
+        try {
+            ps = cnx.prepareStatement("SELECT vehicule.Modele,vehicule.Marque\n" +
+                    "FROM vehicule\n" +
+                    "INNER join lecon on vehicule.Immatriculation=lecon.Immatriculation\n" +
+                    "WHERE lecon.CodeLecon=?");
+            ps.setString(1, codeLecon);
+
+            rs = ps.executeQuery();
+            rs.next();
+            Vehicule = rs.getString("Marque") +" " +rs.getString("Modele");
+
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return Vehicule;
+
+    }
     public String GetDerniereLecon()
     {
         String dernierCode = "";

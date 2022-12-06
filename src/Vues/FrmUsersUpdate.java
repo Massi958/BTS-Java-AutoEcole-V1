@@ -35,7 +35,7 @@ public class FrmUsersUpdate extends JFrame {
     private JLabel lblEmail;
     private CtrlUser ctrlUser;
     public FrmUsersUpdate(Users unUser) {
-        this.setTitle("Eleve modification");
+        this.setTitle("Modification de l'utilisateur");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

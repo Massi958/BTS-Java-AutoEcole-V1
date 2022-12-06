@@ -31,7 +31,7 @@ public class FrmPlanning extends JFrame{
     private ModelJTable modelJTable;
     CtrlUser ctrlUser;
     public FrmPlanning(Users UnUser) {
-        this.setTitle("Eleve Planning");
+        this.setTitle("Planning");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

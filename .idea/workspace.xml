@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a90827c8-ae16-4a11-b0bd-dda67182bc96" name="Changes" comment="Projet Presque Complet 1">
+    <list default="true" id="a90827c8-ae16-4a11-b0bd-dda67182bc96" name="Changes" comment="Projet Complet 1.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BST-SIO-G1-2023-AutoEcole-Software.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BST-SIO-G1-2023-AutoEcole-Software.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controlers/CtrlUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlers/CtrlUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tools/ModelJTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/ModelJTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vues/FrmAjoutLicence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmAjoutLicence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmConsultationChiffre.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmConsultationChiffre.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleveCours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmEleveCours.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmGraphiqueMoniteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmGraphiqueMoniteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/FrmPlanning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmPlanning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/FrmUsersUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmUsersUpdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +106,7 @@
       <workItem from="1670225977159" duration="15123000" />
       <workItem from="1670254926416" duration="8362000" />
       <workItem from="1670264099929" duration="309000" />
-      <workItem from="1670312670415" duration="1941000" />
+      <workItem from="1670312670415" duration="5118000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout du FrmConnexion">
       <created>1668424280328</created>
@@ -227,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670312788427</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Projet Complet 1.2">
+      <created>1670314717236</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1670314717236</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +264,7 @@
     <MESSAGE value="Ajout des graphique pour les eleves" />
     <MESSAGE value="Projet Presque Complet" />
     <MESSAGE value="Projet Presque Complet 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Projet Presque Complet 1" />
+    <MESSAGE value="Projet Complet 1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projet Complet 1.2" />
   </component>
 </project>

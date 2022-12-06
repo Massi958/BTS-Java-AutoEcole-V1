@@ -29,7 +29,7 @@ public class FrmAjoutLicence extends JFrame{
     private ModelJTable modelJTable;
 
     public FrmAjoutLicence(Users unUser) {
-        this.setTitle("Moniteur Acceuil");
+        this.setTitle("Ajout Licence");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
