@@ -580,7 +580,7 @@ public class CtrlUser {
 
     }
 
-    public HashMap<String,Double> GetDatasGraphique(String codeUser)
+    public HashMap<String,Double> GetDatasGraphique(String codeUser,String DateDebut,String dateFin)
     {
         HashMap<String, Double> datas = new HashMap();
         try {
@@ -589,9 +589,11 @@ public class CtrlUser {
                     "INNER JOIN participe on lecon.CodeLecon=participe.CodeLecon\n" +
                     "INNER JOIN vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
                     "INNER JOIN categorie on vehicule.CodeCategorie=categorie.CodeCategorie\n" +
-                    "WHERE participe.CodeUser=?\n" +
-                    "GROUP BY Libelle;");
+                    "WHERE participe.CodeUser=? and lecon.Date BETWEEN ? and ?\n" +
+                    "GROUP BY Libelle");
             ps.setString(1,codeUser);
+            ps.setString(2,DateDebut);
+            ps.setString(3,dateFin);
             rs = ps.executeQuery();
             while(rs.next())
             {

@@ -18,7 +18,7 @@ public class FrmGraphiqueMoniteur extends JFrame{
     private JPanel pnlGraph;
     private JButton btnRetour;
 
-    public FrmGraphiqueMoniteur(Users unUser){
+    public FrmGraphiqueMoniteur(Users unUser,String dateDebut,String DateFin){
         this.setTitle("Moniteur Stats");
         this.setContentPane(pnlGraph);
         this.pack();
@@ -27,13 +27,14 @@ public class FrmGraphiqueMoniteur extends JFrame{
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ctrlUser = new CtrlUser();
 
+
         DefaultCategoryDataset donnees = new DefaultCategoryDataset();
         donnees = new DefaultCategoryDataset();
         double total;
         String nomPigiste;
-        for (String valeur : ctrlUser.GetDatasGraphique(unUser.getCodeUser()).keySet())
+        for (String valeur : ctrlUser.GetDatasGraphique(unUser.getCodeUser(),dateDebut,DateFin).keySet())
         {
-            total = ctrlUser.GetDatasGraphique(unUser.getCodeUser()).get(valeur);
+            total = ctrlUser.GetDatasGraphique(unUser.getCodeUser(),dateDebut,DateFin).get(valeur);
             nomPigiste = valeur;
             donnees.setValue(total,"",nomPigiste);
         }
