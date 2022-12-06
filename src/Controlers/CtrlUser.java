@@ -353,7 +353,8 @@ public class CtrlUser {
             ps = cnx.prepareStatement("SELECT lecon.Heure,lecon.Date,lecon.CodeLecon\n" +
                     "        FROM lecon\n" +
                     "        INNER join participe on lecon.CodeLecon = participe.CodeLecon\n" +
-                    "        WHERE participe.codeUser = ? and lecon.Date BETWEEN ? AND ?;");
+                    "        WHERE participe.codeUser = ? and lecon.Date BETWEEN ? AND ?" +
+                    "        ORDER by lecon.Date DESC;");
 
 
             ps.setString(1, code);
