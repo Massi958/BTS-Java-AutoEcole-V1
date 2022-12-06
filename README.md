@@ -18,4 +18,4 @@
   - jfreechart-1.5.3
   - jcommon-1.0.23
 
-
+-Nécessite la base de donnée inclue dans le projet
