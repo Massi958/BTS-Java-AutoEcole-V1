@@ -103,7 +103,23 @@ public class FrmUsersUpdate extends JFrame {
                     JOptionPane.showMessageDialog(null, "Veuillez rentrez une Date", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else {
                  ctrlUser.ModifierProfil(Integer.valueOf(txtCodeUser.getText()),txtNom.getText(),txtPrenom.getText(),txtEmail.getText(),txtMdp.getText(),unUser.getStatut(),cboSexe.getSelectedItem().toString(),txtDate.getText(),txtAdresse.getText(),txtCodePostal.getText(),txtVille.getText(),txtNum.getText());
-                    JOptionPane.showMessageDialog(null, "Votre Profil a bien été changé", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                 String[] options = {"Modifier une Nouvelle fois votre Profil", "Revenir au menu Principal"};
+                 int x = JOptionPane.showOptionDialog(null, "Votre Profil a bien été Modifier",
+                            "Votre Choix",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if ( x == 1){
+                        super.mouseClicked(e);
+                        if (unUser.getStatut().equals("moniteur")){
+                            FrmMoniteur frm = new FrmMoniteur(unUser);
+                            frm.setVisible(true);
+                            dispose();
+                        }else{
+                            FrmEleve frm = new FrmEleve(unUser);
+                            frm.setVisible(true);
+                            dispose();
+                        }
+
+                    }
                 }
 
             }

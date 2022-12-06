@@ -70,22 +70,43 @@ public class FrmAjoutLicence extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                if (cldObtention.getDate() == null){
-                    JOptionPane.showMessageDialog(null, "Veuillez rentrez une Date", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                if ((cboLicence.getSelectedItem())==null){
+                    String[] options = {"Voir vos Licences Possedées", "Revenir au menu Principal"};
 
-                } else if ((cboLicence.getSelectedItem())==null) {
-                    JOptionPane.showMessageDialog(null, "Veuillez choisir une licence", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    int x = JOptionPane.showOptionDialog(null, "Vous possedées déjà toutes les licences",
+                            "Votre Choix",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if ( x == 1){
+                        super.mouseClicked(e);
+                        FrmMoniteur frm = new FrmMoniteur(unUser);
+                        frm.setVisible(true);
+                        dispose();
+                    }
+                } else if (cldObtention.getDate() == null  ) {
+                    JOptionPane.showMessageDialog(null, "Veuillez rentrez une Date", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 } else {
                     modelJTable = new ModelJTable();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     String dateObtention = sdf.format(cldObtention.getDate());
                     ctrlUser.AjoutLicence(ctrlUser.GetCodeByLibelle(cboLicence.getSelectedItem().toString()), unUser.getCodeUser(),dateObtention);
-                    JOptionPane.showMessageDialog(null, "Votre Licence a été ajouter", "Votre choix", JOptionPane.WARNING_MESSAGE);
-                    modelJTable.loadDatasLicence(ctrlUser.GetLicencePossede(String.valueOf(unUser.getCodeUser())));
-                    tblLicence.setModel(modelJTable);
-                    cboLicence.removeAllItems();
-                    for(Categorie categorie: ctrlUser.GetLicenceNonPossede(unUser.getCodeUser())){
-                        cboLicence.addItem(categorie.getLibelle());
+                    String[] options = {"Voir vos Licences Possedées", "Revenir au menu Principal"};
+
+                    int x = JOptionPane.showOptionDialog(null, "Votre Licence a été ajouter",
+                            "Votre Choix",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if ( x == 1){
+                        super.mouseClicked(e);
+                        FrmMoniteur frm = new FrmMoniteur(unUser);
+                        frm.setVisible(true);
+                        dispose();
+                    }else{
+                        modelJTable.loadDatasLicence(ctrlUser.GetLicencePossede(String.valueOf(unUser.getCodeUser())));
+                        tblLicence.setModel(modelJTable);
+                        cboLicence.removeAllItems();
+                        for(Categorie categorie: ctrlUser.GetLicenceNonPossede(unUser.getCodeUser())){
+                            cboLicence.addItem(categorie.getLibelle());
+                    }
+
 
                     }
 

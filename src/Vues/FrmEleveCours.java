@@ -95,7 +95,19 @@ public class FrmEleveCours extends JFrame{
 
                         }
                         }else {
-                        JOptionPane.showMessageDialog(null, "Vous avez deja une lecon a cette heure regardez votre planning pour plus d'information", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                        String[] options = {"Ok", "Voir Mon Planning"};
+
+                        int x = JOptionPane.showOptionDialog(null, "Vous avez deja une lecon a cette heure regardez votre planning pour plus d'information",
+                                "Votre Choix",
+                                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if ( x == 1){
+                            super.mouseClicked(e);
+                            FrmPlanning frm = new FrmPlanning(unUser);
+                            frm.setVisible(true);
+                            dispose();
+                        }
+
+                        //JOptionPane.showMessageDialog(null, "Vous avez deja une lecon a cette heure regardez votre planning pour plus d'information", "Votre choix", JOptionPane.WARNING_MESSAGE);
                         cboChoixCategories.removeAllItems();
                         cboChoixMoniteur.removeAllItems();
 
@@ -123,7 +135,17 @@ public class FrmEleveCours extends JFrame{
 
                     ctrlUser.AjoutParticipe(unUser.getCodeUser(), ctrlUser.GetDerniereLecon() );
                     ctrlUser.AjoutParticipe(ctrlUser.GetCodeByPrenom(cboChoixMoniteur.getSelectedItem().toString()),ctrlUser.GetDerniereLecon());
-                    JOptionPane.showMessageDialog(null, "Votre lecon a bien été prise", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    String[] options = {"Reprendre une Lecon", "Revenir au menu Principal"};
+
+                    int x = JOptionPane.showOptionDialog(null, "Votre Lecon a bien été prise",
+                            "Votre Choix",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if ( x == 1){
+                        super.mouseClicked(e);
+                        FrmEleve frm = new FrmEleve(unUser);
+                        frm.setVisible(true);
+                        dispose();
+                    }
                     cboChoixMoniteur.removeAllItems();
                     cboChoixCategories.removeAllItems();
                 }

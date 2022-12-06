@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a90827c8-ae16-4a11-b0bd-dda67182bc96" name="Changes" comment="Projet Complet 1.2">
+    <list default="true" id="a90827c8-ae16-4a11-b0bd-dda67182bc96" name="Changes" comment="Projet Complet 1.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlers/CtrlUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlers/CtrlUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/ModelJTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/ModelJTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vues/FrmAjoutLicence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmAjoutLicence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmPlanning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmPlanning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleve.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmEleve.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmEleve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleveCours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmEleveCours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/FrmMoniteur.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmMoniteur.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/FrmMoniteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmMoniteur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vues/FrmUsersUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/FrmUsersUpdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +108,7 @@
       <workItem from="1670225977159" duration="15123000" />
       <workItem from="1670254926416" duration="8362000" />
       <workItem from="1670264099929" duration="309000" />
-      <workItem from="1670312670415" duration="5118000" />
+      <workItem from="1670312670415" duration="11032000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout du FrmConnexion">
       <created>1668424280328</created>
@@ -234,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670314717236</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Projet Complet 1.3">
+      <created>1670318218347</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1670318218347</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +274,7 @@
     <MESSAGE value="Projet Presque Complet" />
     <MESSAGE value="Projet Presque Complet 1" />
     <MESSAGE value="Projet Complet 1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Projet Complet 1.2" />
+    <MESSAGE value="Projet Complet 1.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projet Complet 1.3" />
   </component>
 </project>

@@ -16,6 +16,8 @@ public class FrmEleve extends JFrame {
     private JButton btnPlanning;
 
     private JButton btnDeconnexion;
+    private JLabel lblPrenom;
+    private JLabel lblCompte;
 
 
     public FrmEleve(Users unUser) {
@@ -24,6 +26,7 @@ public class FrmEleve extends JFrame {
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        lblPrenom.setText(unUser.getPrenom());
         btnModifierUser.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

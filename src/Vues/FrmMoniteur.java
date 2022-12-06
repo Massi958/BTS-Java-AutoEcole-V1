@@ -16,6 +16,8 @@ public class FrmMoniteur extends JFrame {
     private JButton btnPlanning;
     private JButton btnLicence;
     private JButton btnDeconnexion;
+    private JLabel lblProfil;
+    private JLabel lblPrenom;
 
     public FrmMoniteur(Users unUser) {
         this.setTitle("Moniteur Acceuil");
@@ -23,7 +25,7 @@ public class FrmMoniteur extends JFrame {
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-
+        lblPrenom.setText(unUser.getPrenom());
 
 
 
