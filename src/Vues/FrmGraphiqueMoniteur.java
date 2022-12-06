@@ -19,7 +19,7 @@ public class FrmGraphiqueMoniteur extends JFrame{
     private JButton btnRetour;
 
     public FrmGraphiqueMoniteur(Users unUser){
-        this.setTitle("Eleve Stats");
+        this.setTitle("Moniteur Stats");
         this.setContentPane(pnlGraph);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

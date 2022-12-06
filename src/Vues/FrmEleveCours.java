@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class FrmEleveCours extends JFrame{
     private JTextField txtPrix;
@@ -48,6 +49,7 @@ public class FrmEleveCours extends JFrame{
         pnlDate.add(cldDate);
         JTextFieldDateEditor editor = (JTextFieldDateEditor) cldDate.getDateEditor();
         editor.setEditable(false);
+        cldDate.setMinSelectableDate(java.sql.Date.valueOf(LocalDate.now().toString()));
 
         //Définir les propriétés des JSpinner
 

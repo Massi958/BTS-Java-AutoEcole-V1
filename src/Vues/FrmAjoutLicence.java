@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class FrmAjoutLicence extends JFrame{
     private JButton btnRetour;
@@ -41,6 +42,7 @@ public class FrmAjoutLicence extends JFrame{
         modelJTable = new ModelJTable();
         JTextFieldDateEditor editor = (JTextFieldDateEditor) cldObtention.getDateEditor();
         editor.setEditable(false);
+        cldObtention.setMaxSelectableDate(java.sql.Date.valueOf(LocalDate.now().toString()));
 
 
         modelJTable = new ModelJTable();
