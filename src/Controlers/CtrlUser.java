@@ -40,6 +40,26 @@ public class CtrlUser {
         return unUser;
 
     }
+    public Users GetUnUserByPrenomNom(String prenom, String nom){
+        Users unUser = null;
+        try {
+            ps = cnx.prepareStatement("SELECT CodeUser,Nom,Prenom,Email,MotdePasse,Statut,Sexe,DateDeNaissance,Adresse1,CodePostal,Ville,Telephone FROM users WHERE Prenom=? and Nom=?");
+
+
+            ps.setString(1, prenom);
+            ps.setString(2, nom);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                unUser = new Users(rs.getString("CodeUser"),rs.getString("Nom"),rs.getString("Prenom"),rs.getString("Email"),rs.getString("MotdePasse"),rs.getString("Statut"),rs.getString("Sexe"),rs.getString("DateDeNaissance"),rs.getString("Adresse1"),rs.getString("CodePostal"),rs.getString("Ville"),rs.getString("Telephone"));
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return unUser;
+
+    }
 
     public int GetCodeByLibelle(String libelle)
     {
@@ -59,6 +79,26 @@ public class CtrlUser {
         }
         return Code;
     }
+    public int GetCodeByNomPrenom(String prenom,String nom)
+    {
+        int Code = 0;
+        try {
+            ps = cnx.prepareStatement("SELECT users.CodeUser\n" +
+                    "FROM users\n" +
+                    "WHERE users.Prenom=? and users.Nom=?");
+            ps.setString(1, prenom);
+            ps.setString(2, nom);
+            rs = ps.executeQuery();
+            rs.next();
+            Code = rs.getInt("CodeUser");
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return Code;
+    }
+
     public String GetCodeByPrenom(String prenom)
     {
         String Code = "";
@@ -115,6 +155,30 @@ public class CtrlUser {
         }
         return Prenom;
     }
+    public String GetLesPrenomByCodeLecon(String codeLecon)
+    {
+        String Prenom = "";
+        try {
+            ps = cnx.prepareStatement("SELECT users.Prenom\n" +
+                    "FROM users\n" +
+                    "WHERE users.CodeUser IN\n" +
+                    "(SELECT participe.CodeUser\n" +
+                    "FROM participe\n" +
+                    "WHERE participe.CodeLecon=?)");
+            ps.setString(1, codeLecon);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                Prenom = Prenom +rs.getString("Prenom")+ " et " ;
+            }
+
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return Prenom.substring(0, Prenom.length() - 3);
+    }
     public String GetVehiculeByCodeLecon(String codeLecon)
     {
         String Vehicule = "";
@@ -147,6 +211,22 @@ public class CtrlUser {
             rs = ps.executeQuery();
             rs.next();
             dernierCode = rs.getString("max");
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return dernierCode;
+    }
+    public int GetDerniereCategorie()
+    {
+        int dernierCode = 0;
+        try {
+            ps = cnx.prepareStatement("SELECT MAX(categorie.CodeCategorie) as max\n" +
+                    "FROM categorie");
+            rs = ps.executeQuery();
+            rs.next();
+            dernierCode = rs.getInt("max");
             ps.close();
             rs.close();
         } catch (SQLException e) {
@@ -374,6 +454,32 @@ public class CtrlUser {
         return lePlanning;
 
     }
+    public ArrayList<Planning> GetPlanningGeneral( String dateDebut, String dateFin){
+        ArrayList<Planning> lePlanning = new ArrayList<>();
+        try {
+            ps = cnx.prepareStatement("SELECT DISTINCT lecon.Heure,lecon.Date,lecon.CodeLecon\n" +
+                    "        FROM lecon\n" +
+                    "        INNER join participe on lecon.CodeLecon = participe.CodeLecon\n" +
+                    "        WHERE lecon.Date BETWEEN ? AND ?" +
+                    "        ORDER by lecon.Date DESC;");
+
+
+            ps.setString(1, dateDebut);
+            ps.setString(2, dateFin);
+
+            rs = ps.executeQuery();
+            while (rs.next()){
+                Planning planning = new Planning(rs.getString("Heure"), rs.getString("Date"),rs.getString("CodeLecon"));
+                lePlanning.add(planning);
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lePlanning;
+
+    }
     public  ArrayList<Users> GetMoniteurDisponible(String Permis,String Date,String Heure){
         ArrayList<Users> MoniteurDispo = new ArrayList<>();
         try {
@@ -580,7 +686,46 @@ public class CtrlUser {
         }
 
     }
+    public void AjoutMoniteur(String nom,String prenom,String email,String motDePasse,String sexe,String dateDeNaissance,String adresse1,String codePostal,String ville,String telephone){
+        try {
+            ps = cnx.prepareStatement("INSERT INTO users (Nom, Prenom, Email, MotDePasse, Sexe, DateDeNaissance, Adresse1, CodePostal, Ville, Telephone, Statut)\n" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'moniteur')");
+            ps.setString(1,nom);
+            ps.setString(2,prenom);
+            ps.setString(3,email);
+            ps.setString(4,motDePasse);
+            ps.setString(5,sexe);
+            ps.setString(6,dateDeNaissance);
+            ps.setString(7,adresse1);
+            ps.setString(8,codePostal);
+            ps.setString(9,ville);
+            ps.setString(10,telephone);
+            ps.executeUpdate();
+            ps.close();
 
+        } catch (SQLException e) {
+            Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+    }
+
+    public ArrayList<Users> GetAllUser(String statut){
+        ArrayList<Users> lesUsers = new ArrayList<>();
+        try {
+            ps = cnx.prepareStatement("SELECT CodeUser,Nom,Prenom,Email,MotdePasse,Statut,Sexe,DateDeNaissance,Adresse1,CodePostal,Ville,Telephone\n" +
+                    "FROM users\n" +
+                    "WHERE Statut=?");
+            ps.setString(1,statut);
+            rs = ps.executeQuery();
+            while ((rs.next())){
+                Users user = new Users(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12));
+                lesUsers.add(user);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return lesUsers;
+    }
     public HashMap<String,Double> GetDatasGraphique(String codeUser,String DateDebut,String dateFin)
     {
         HashMap<String, Double> datas = new HashMap();

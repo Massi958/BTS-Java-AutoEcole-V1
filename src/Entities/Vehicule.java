@@ -7,7 +7,7 @@ public class Vehicule {
     private String Marque;
     private String Model;
 
-    public Vehicule(String CodeCategorie, String Annee,String Immatriculation,String Marque,String Model) {
+    public Vehicule(String CodeCategorie, String Annee,String Imatriculation,String Marque,String Model) {
         this.setCodeCategorie(CodeCategorie);
         this.Annee = Annee;
         this.Imatriculation = Imatriculation;

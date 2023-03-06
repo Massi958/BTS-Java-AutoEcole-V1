@@ -10,7 +10,10 @@ import java.util.ArrayList;
 public class ModelJTable extends AbstractTableModel {
     private String[] nomsColonnes;
     private Object[][] rows;
+
     private CtrlUser ctrlUser;
+    private CtrlVehicule ctrlVehicule;
+
     @Override
     public String getColumnName(int column) {
         return nomsColonnes[column];
@@ -34,20 +37,42 @@ public class ModelJTable extends AbstractTableModel {
         ctrlUser = new CtrlUser();
         if (unUser.getStatut().equals("moniteur")){
             nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Eleve"};
-        }else{
+            rows = new Object[lePlanning.size()][4];
+            int i = 0;
+            for (Planning planning: lePlanning){
+                rows[i][0] = planning.getDatePlanning();
+                rows[i][1] = planning.getHeurePlanning();
+                rows[i][2] = ctrlUser.GetVehiculeByCodeLecon(planning.getCodeLecon());
+                rows[i][3] = ctrlUser.GetPrenomByCodeLecon(unUser.getCodeUser(),planning.getCodeLecon());
+
+                i++;
+            }
+        }else if(unUser.getStatut().equals("eleve")){
             nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Moniteur"};
+            rows = new Object[lePlanning.size()][4];
+            int i = 0;
+            for (Planning planning: lePlanning){
+                rows[i][0] = planning.getDatePlanning();
+                rows[i][1] = planning.getHeurePlanning();
+                rows[i][2] = ctrlUser.GetVehiculeByCodeLecon(planning.getCodeLecon());
+                rows[i][3] = ctrlUser.GetPrenomByCodeLecon(unUser.getCodeUser(),planning.getCodeLecon());
+
+                i++;
+            }
+        }else{
+            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Participant"};
+            rows = new Object[lePlanning.size()][4];
+            int i = 0;
+            for (Planning planning: lePlanning){
+                rows[i][0] = planning.getDatePlanning();
+                rows[i][1] = planning.getHeurePlanning();
+                rows[i][2] = ctrlUser.GetVehiculeByCodeLecon(planning.getCodeLecon());
+                rows[i][3] = ctrlUser.GetLesPrenomByCodeLecon(planning.getCodeLecon());
+                i++;
+            }
         }
 
-        rows = new Object[lePlanning.size()][4];
-        int i = 0;
-        for (Planning planning: lePlanning){
-            rows[i][0] = planning.getDatePlanning();
-            rows[i][1] = planning.getHeurePlanning();
-            rows[i][2] = ctrlUser.GetVehiculeByCodeLecon(planning.getCodeLecon());
-            rows[i][3] = ctrlUser.GetPrenomByCodeLecon(unUser.getCodeUser(),planning.getCodeLecon());
 
-            i++;
-        }
     }
 
     public  void loadDatasLicence(ArrayList<Licence> lesLicencePossede){
@@ -60,7 +85,32 @@ public class ModelJTable extends AbstractTableModel {
             i++;
         }
     }
+    public  void loadDatasCategorie(ArrayList<Categorie> lesCategorie){
+        nomsColonnes = new String[]{"Code Categorie","Libelle","Prix"};
+        rows = new Object[lesCategorie.size()][3];
+        int i = 0;
+        for (Categorie categorie: lesCategorie){
+            rows[i][0] = categorie.getCodeCategorie();
+            rows[i][1] = categorie.getLibelle();
+            rows[i][2] = categorie.getPrix();
+            i++;
+        }
+    }
 
+    public  void loadDatasVehicule(ArrayList<Vehicule> lesVehicule){
+        ctrlVehicule = new CtrlVehicule();
+        nomsColonnes = new String[]{"Marque","Model","Immatriculation","Annee","Categorie"};
+        rows = new Object[lesVehicule.size()][5];
+        int i = 0;
+        for (Vehicule vehicule: lesVehicule){
+            rows[i][0] = vehicule.getMarque();
+            rows[i][1] = vehicule.getModel();
+            rows[i][2] = vehicule.getImatriculation();
+            rows[i][3] = vehicule.getAnnee();
+            rows[i][4] = ctrlVehicule.GetLibelleByCode(vehicule.getCodeCategorie());
+            i++;
+        }
+    }
 
 
 }
