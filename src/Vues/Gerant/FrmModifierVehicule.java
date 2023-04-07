@@ -3,6 +3,7 @@ package Vues.Gerant;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.Year;
 
 import Controlers.CtrlUser;
 import Controlers.CtrlVehicule;
@@ -17,24 +18,28 @@ public class FrmModifierVehicule extends JFrame{
     private JTextField txtModele;
     private JTextField txtImmatriculation;
     private JLabel lblImmatriculation;
-    private JTextField txtAnnee;
+    private JSpinner txtAnnee;
     private JLabel lblCategorie;
     private JComboBox cboCategorie;
     private JPanel pnlRoot;
     private JButton btnRetour;
+    private JSpinner spinner1;
     CtrlVehicule ctrlVehicule;
     CtrlUser ctrlUser;
 
     public FrmModifierVehicule(String marque,String modele,String annee,String categorie,String immatriculation,Users unUser) {
         ctrlUser = new CtrlUser();
         ctrlVehicule = new CtrlVehicule();
-        this.setTitle("Modifier Vehicule");
+        this.setTitle("Modification de véhicule");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        txtAnnee.setModel(new SpinnerNumberModel(1980,1980, Year.now().getValue(),1));
+        JFormattedTextField tf = ((JSpinner.DefaultEditor) txtAnnee.getEditor()).getTextField();
+        tf.setEditable(false);
 
-        txtAnnee.setText(annee);
+        txtAnnee.setValue((Integer.valueOf(annee)));
         txtModele.setText(modele);
         txtMarque.setText(marque);
         txtImmatriculation.setText(immatriculation);
@@ -49,18 +54,18 @@ public class FrmModifierVehicule extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (txtModele.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Le champ Modele est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
-                } else if (txtAnnee.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Le champ Annee est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Le champ Modéle est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
+                } else if (txtAnnee==null) {
+                    JOptionPane.showMessageDialog(null, "Le champ Année est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
                 }else if (txtMarque.getText().compareTo("") == 0) {
                     JOptionPane.showMessageDialog(null, "Le champ Marque est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
                 }else if (txtImmatriculation.getText().compareTo("") == 0) {
                     JOptionPane.showMessageDialog(null, "Le champ Immatriculation est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
                 }else{
-                    ctrlVehicule.ModifierVehicule(txtMarque.getText(),txtModele.getText(),txtAnnee.getText(),String.valueOf(ctrlUser.GetCodeByLibelle(cboCategorie.getSelectedItem().toString())),txtImmatriculation.getText());
+                    ctrlVehicule.ModifierVehicule(txtMarque.getText(),txtModele.getText(),txtAnnee.getValue().toString(),String.valueOf(ctrlUser.GetCodeByLibelle(cboCategorie.getSelectedItem().toString())),txtImmatriculation.getText());
 
-                    String[] options = {"Modifier a nouveau", "Revenir au menu des vehicule"};
-                    int x = JOptionPane.showOptionDialog(null, "Le vehicule a bien été modifier",
+                    String[] options = {"Modifier à nouveau", "Revenir au menu des véhicule"};
+                    int x = JOptionPane.showOptionDialog(null, "Le véhicule a bien été modifié",
                             "Votre Choix",
                             JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                     if ( x == 1){

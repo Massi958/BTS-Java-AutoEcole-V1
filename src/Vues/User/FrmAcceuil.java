@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 import java.sql.SQLException;
 
 public class FrmAcceuil extends JFrame{
@@ -16,11 +17,12 @@ public class FrmAcceuil extends JFrame{
 
     public FrmAcceuil() throws SQLException, ClassNotFoundException {
 
-        this.setTitle("Acceuil");
+        this.setTitle("Accueil");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+
         ConnexionBDD cnx = new ConnexionBDD();
         ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/Images/voiture.png")).getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_DEFAULT));
 

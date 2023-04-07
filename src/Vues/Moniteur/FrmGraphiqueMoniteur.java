@@ -19,7 +19,7 @@ public class FrmGraphiqueMoniteur extends JFrame{
     private JButton btnRetour;
 
     public FrmGraphiqueMoniteur(Users unUser,String dateDebut,String DateFin){
-        this.setTitle("Moniteur Stats");
+        this.setTitle("Moniteur Statistique");
         this.setContentPane(pnlGraph);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -39,8 +39,8 @@ public class FrmGraphiqueMoniteur extends JFrame{
             donnees.setValue(total,"",nomPigiste);
         }
         JFreeChart chart = ChartFactory.createBarChart(
-                "Nombre d'euro par categorie",
-                "Nom categorie",
+                "Nombre d'euro par catégorie",
+                "Nom catégorie",
                 "Nombre D'euro",
                 donnees,
                 PlotOrientation.VERTICAL,false, true, false);

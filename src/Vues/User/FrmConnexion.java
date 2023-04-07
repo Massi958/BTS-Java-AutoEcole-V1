@@ -29,6 +29,15 @@ public class FrmConnexion extends JFrame{
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
         ctrlUser = new CtrlUser();
         btnRetour.addActionListener(new ActionListener() {
             @Override
@@ -53,13 +62,13 @@ public class FrmConnexion extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (txtIdentifiant.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un Identifier", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un Identifiant", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 } else if (pwdMotDePasse.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Veuillez selectionner un mot de passe", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un mot de passe", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 } else{
                     Users unUser = ctrlUser.GetUnUser(txtIdentifiant.getText(), pwdMotDePasse.getText());
                     if(unUser==null){
-                        JOptionPane.showMessageDialog(null, "Indentifient Incorrect", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Indentifiant Incorrect", "Votre choix", JOptionPane.WARNING_MESSAGE);
                     }else{
                         if(unUser.getStatut().compareTo("eleve")==0){
                             FrmEleve frm = new FrmEleve(unUser);

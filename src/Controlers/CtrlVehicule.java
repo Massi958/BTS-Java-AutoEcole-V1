@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -152,6 +153,75 @@ public class CtrlVehicule {
             Logger.getLogger(CtrlUser.class.getName()).log(Level.SEVERE, null, e);
         }
 
+    }
+    public ArrayList<String> GetDataGraphiqueVehicule(){
+        ArrayList<String> lesVehicules = new ArrayList<>();
+        try {
+            ps = cnx.prepareStatement("SELECT Count(lecon.Immatriculation) as Stats,Marque,Modele\n" +
+                    "FROM lecon\n" +
+                    "inner join vehicule on lecon.Immatriculation= vehicule.Immatriculation\n" +
+                    "GROUP BY lecon.Immatriculation\n" +
+                    "ORDER BY COUNT(lecon.Immatriculation) DESC\n" +
+                    "LIMIT 1;");
+            rs = ps.executeQuery();
+            while ((rs.next())){
+                String vehicule = rs.getString("Stats");
+                lesVehicules.add(vehicule);
+                String modele = rs.getString("Modele");
+                lesVehicules.add(modele);
+                String marque = rs.getString("Marque");
+                lesVehicules.add(marque);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return lesVehicules;
+    }
+    public HashMap<String,Double> GetDataGraphiqueVehicule2(String DateDebut,String DateFin){
+        HashMap<String,Double> lesVehicules = new HashMap();
+        try {
+            ps = cnx.prepareStatement("SELECT COUNT(lecon.Immatriculation)*categorie.Prix as CA,categorie.Libelle\n" +
+                    "FROM lecon\n" +
+                    "INNER JOIN vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
+                    "INNER JOIN categorie on vehicule.CodeCategorie=categorie.CodeCategorie\n" +
+                    "WHERE lecon.Reglee=1 and lecon.Date > ? and lecon.Date < ?\n" +
+                    "GROUP BY categorie.Libelle\n");
+            ps.setString(1,DateDebut);
+            ps.setString(2,DateFin);
+            rs = ps.executeQuery();
+            while ((rs.next())){
+                lesVehicules.put(rs.getString("Libelle"), rs.getDouble("CA"));
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return lesVehicules;
+    }
+    public String GetDataGraphiqueUtiliation(String libelle,int CodeUser,String Marque,String Modele){
+        String utilisation="" ;
+        try {
+            ps = cnx.prepareStatement("SELECT count(lecon.CodeLecon) as util\n" +
+                    "FROM lecon\n" +
+                    "INNER join vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
+                    "INNER JOIN categorie on vehicule.CodeCategorie=categorie.CodeCategorie\n" +
+                    "INNER JOIN participe on lecon.CodeLecon=participe.CodeLecon\n" +
+                    "INNER join users on participe.CodeUser=users.CodeUser\n" +
+                    "WHERE categorie.Libelle=? or (vehicule.Marque=? and vehicule.Modele=? )or users.CodeUser=?;");
+            ps.setString(1,libelle);
+            ps.setString(2,Marque);
+            ps.setString(3,Modele);
+            ps.setInt(4,CodeUser);
+            rs = ps.executeQuery();
+            while ((rs.next())){
+                utilisation = rs.getString("util");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return utilisation;
     }
 
 

@@ -23,7 +23,7 @@ public class FrmEleve extends JFrame {
 
 
     public FrmEleve(Users unUser) {
-        this.setTitle("Eleve Acceuil");
+        this.setTitle("Elève Accueil");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

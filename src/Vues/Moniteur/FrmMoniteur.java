@@ -23,7 +23,7 @@ public class FrmMoniteur extends JFrame {
     private JLabel lblPrenom;
 
     public FrmMoniteur(Users unUser) {
-        this.setTitle("Moniteur Acceuil");
+        this.setTitle("Moniteur Accueil");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

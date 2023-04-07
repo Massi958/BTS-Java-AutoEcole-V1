@@ -75,7 +75,7 @@ public class FrmPlanning extends JFrame{
 
 
                 if(cldDateFin.getDate()==null || cldDateDebut.getDate()==null){
-                    JOptionPane.showMessageDialog(null, "Choisissez une date de debut et de fin ", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Choisissez une date de début et de fin ", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else{
                     modelJTable = new ModelJTable();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

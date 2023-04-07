@@ -41,24 +41,40 @@ public class FrmModifierCategorie extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                double testSiDouble;
+                int j=0;
                 if (txtPrix.getText().compareTo("") == 0) {
                     JOptionPane.showMessageDialog(null, "Le champ Prix est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
                 } else if (txtLibelle.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Le champ Libelle est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Le champ Libellé est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
                 }else if (txtCodeCategorie.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Le champ Code Categorie est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Le champ Code Catégorie est vide", "Attention !", JOptionPane.WARNING_MESSAGE);
                 }else{
-                        ctrlVehicule.ModifierCategorie(txtLibelle.getText(),Double.valueOf(txtPrix.getText()),Integer.valueOf(txtCodeCategorie.getText()));
-                    String[] options = {"Modifier a nouveau", "Revenir au menu des Categories"};
-                    int x = JOptionPane.showOptionDialog(null, "Le Categorie a bien été modifier",
-                            "Votre Choix",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-                    if ( x == 1){
-                        super.mouseClicked(e);
-                        FrmCategorie frm = new FrmCategorie(unUser);
-                        frm.setVisible(true);
-                        dispose();
+                    try
+                    {
+                        testSiDouble = Double.parseDouble(txtPrix.getText());
                     }
+
+                    catch (Exception erreur)
+                    {
+                        JOptionPane.showMessageDialog(null, "Veuillez rentrez un Nombre dans le champs Prix et non un texte(on écrit avec un point et non une virgule)", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                        j=1;
+                    }
+                    if (j==0){
+
+                        ctrlVehicule.ModifierCategorie(txtLibelle.getText(),Double.valueOf(txtPrix.getText()),Integer.valueOf(txtCodeCategorie.getText()));
+                        String[] options = {"Modifier à nouveau", "Revenir au menu des Catégories"};
+                        int x = JOptionPane.showOptionDialog(null, "La Catégorie a bien été modifiée",
+                                "Votre Choix",
+                                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if ( x == 1){
+                            super.mouseClicked(e);
+                            FrmCategorie frm = new FrmCategorie(unUser);
+                            frm.setVisible(true);
+                            dispose();
+                        }
+                    }
+
                 }
 
             }

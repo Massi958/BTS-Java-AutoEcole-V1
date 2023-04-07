@@ -34,7 +34,7 @@ public class FrmPlanningGerant extends JFrame{
     public FrmPlanningGerant(Users unUser) {
 
         ctrlUser = new CtrlUser();
-        this.setTitle("Modifier Vehicule");
+        this.setTitle("Planning Gérent");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -77,18 +77,19 @@ public class FrmPlanningGerant extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                String dateDebut = sdf.format(cldDateDebut.getDate());
-                String dateFin = sdf.format(cldDateFin.getDate());
+
                 modelJTable = new ModelJTable();
                 if(cboStatut.getSelectedItem().equals("General")){
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String dateDebut = sdf.format(cldDateDebut.getDate());
+                    String dateFin = sdf.format(cldDateFin.getDate());
                     modelJTable.loadDatasPlanning(ctrlUser.GetPlanningGeneral(dateDebut,dateFin),ctrlUser.GetUnUserByPrenomNom(unUser.getPrenom(), unUser.getNom()));
                     tblPlanning.setModel(modelJTable);
                 }else {
 
 
                 if(cldDateFin.getDate()==null || cldDateDebut.getDate()==null || cboUser.getSelectedItem()==null){
-                    JOptionPane.showMessageDialog(null, "Choisissez une date de debut et de fin et un utilisateur", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Choisissez une date de début,de fin et un utilisateur", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else{
                     String prenomNom = cboUser.getSelectedItem().toString();
                     String[] words = prenomNom.split(" ");
@@ -100,6 +101,9 @@ public class FrmPlanningGerant extends JFrame{
                     if (cboStatut.getSelectedItem().equals("General")){
 
                     }else{
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        String dateDebut = sdf.format(cldDateDebut.getDate());
+                        String dateFin = sdf.format(cldDateFin.getDate());
                         modelJTable.loadDatasPlanning(ctrlUser.GetUnPlanning(codeUser,dateDebut,dateFin),ctrlUser.GetUnUserByPrenomNom(prenom,nom));
                         tblPlanning.setModel(modelJTable);
                     }

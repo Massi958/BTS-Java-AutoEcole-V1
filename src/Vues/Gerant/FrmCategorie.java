@@ -27,6 +27,7 @@ public class FrmCategorie extends  JFrame{
     CtrlUser ctrlUser;
     CtrlVehicule ctrlVehicule;
     public FrmCategorie(Users unUser) {
+        this.setTitle("Ajout/Modification catégorie");
         ctrlUser = new CtrlUser();
         ctrlVehicule = new CtrlVehicule();
         modelJTable = new ModelJTable();
@@ -37,14 +38,28 @@ public class FrmCategorie extends  JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                double testSiDouble;
+                int j=0;
                 if (txtLibelle.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un Libelle", "Votre choix", JOptionPane.WARNING_MESSAGE);
-                } else if (txtPrix.getText().compareTo("") == 0) {
+                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un Libellé", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                } else if (txtPrix.getText().compareTo("") == 0 ) {
                     JOptionPane.showMessageDialog(null, "Veuillez rentrez un Prix", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else if (txtCodeCategorie.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un numero de Categorie", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un numéro de Catégorie", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else {
-                    ctrlVehicule.AjoutCategorie(txtLibelle.getText(),Double.valueOf(txtPrix.getText()),Integer.valueOf(txtCodeCategorie.getText()));
+                    try
+                    {
+                        testSiDouble = Double.parseDouble(txtPrix.getText());
+                    }
+
+                    catch (Exception erreur)
+                    {
+                        JOptionPane.showMessageDialog(null, "Veuillez rentrez un Nombre dans le champs Prix et non un texte(On écrit avec un point et non une virgule)", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                        j=1;
+                    }
+                    if (j==0){
+                        ctrlVehicule.AjoutCategorie(txtLibelle.getText(),Double.valueOf(txtPrix.getText()),Integer.valueOf(txtCodeCategorie.getText()));
+                    }
                 }
                 modelJTable = new ModelJTable();
                 modelJTable.loadDatasCategorie(ctrlVehicule.GetAllCat());
@@ -63,18 +78,13 @@ public class FrmCategorie extends  JFrame{
                 dispose();
             }
         });
-        this.setTitle("Acceuil Categorie");
+
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         ctrlUser = new CtrlUser();
-        btnAjouterCategorie.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-            }
-        });
+
         btnModifier.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -83,7 +93,7 @@ public class FrmCategorie extends  JFrame{
                 Integer row = tblCategorie.getSelectedRow();
                 System.out.print(row);
                 if(row==-1){
-                    JOptionPane.showMessageDialog(null, "Choisissez un Categorie à modifier", "Votre choix", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Choisissez une Catégorie à modifier", "Votre choix", JOptionPane.INFORMATION_MESSAGE);
                 }else{
 
                     String Prix = tblCategorie.getModel().getValueAt(row, 2).toString();

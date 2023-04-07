@@ -4,52 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a90827c8-ae16-4a11-b0bd-dda67182bc96" name="Changes" comment="Projet Complet 1.7">
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmAjoutMoniteur.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmAjoutMoniteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmCategorie.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmCategorie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmGerant.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmGerant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmModifierCategorie.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmModifierCategorie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmModifierVehicule.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmModifierVehicule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmPlanningGerant.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmPlanningGerant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmVehicule.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmVehicule.java" afterDir="false" />
+    <list default="true" id="a90827c8-ae16-4a11-b0bd-dda67182bc96" name="Changes" comment="Projet Complet 2.0">
+      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmChiffreDaffaire.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmChiffreDaffaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmGraphique.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmGraphique.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controlers/CtrlUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlers/CtrlUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controlers/CtrlVehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlers/CtrlVehicule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Vehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Vehicule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/voiture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/ModelJTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/ModelJTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmAcceuil.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmAcceuil.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmAcceuil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmAcceuil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmAjoutLicence.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmAjoutLicence.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmAjoutLicence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmAjoutLicence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmConnexion.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmConnexion.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmConnexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmConsultationChiffre.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmConsultationChiffre.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmConsultationChiffre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmConsultationChiffre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleve.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Eleve/FrmEleve.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Eleve/FrmEleve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleveCours.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Eleve/FrmEleveCours.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleveCours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Eleve/FrmEleveCours.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleveStats.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Eleve/FrmEleveStats.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmEleveStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Eleve/FrmEleveStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmGraphiqueMoniteur.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmGraphiqueMoniteur.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmGraphiqueMoniteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmGraphiqueMoniteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmInscription.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmInscription.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmInscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmInscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmMoniteur.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmMoniteur.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmMoniteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Moniteur/FrmMoniteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmPlanning.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmPlanning.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmPlanning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmPlanning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmUsersUpdate.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmUsersUpdate.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vues/FrmUsersUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmUsersUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/Gerant/FrmGerant.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmGerant.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/Gerant/FrmGerant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/Gerant/FrmGerant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/User/FrmAcceuil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmAcceuil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vues/User/FrmConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vues/User/FrmConnexion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +47,7 @@
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Matiere Java/Bts AutoEcole V1/BTS-Java-AutoEcole-V1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Matiere Java/ProjetMagazinePigiste - Correction/ProjetMagazinePigiste&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -96,6 +62,7 @@
       <recent name="C:\Users\anthonin\Documents\BST-SIO-G1-2023-AutoEcole-Software\src\Controlers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Matiere Java\Bts AutoEcole V1\BTS-Java-AutoEcole-V1\src\Vues\Gerant" />
       <recent name="C:\Matiere Java\Bts AutoEcole V1\BTS-Java-AutoEcole-V1\src\Vues\User" />
       <recent name="C:\Matiere Java\Bts AutoEcole V1\BTS-Java-AutoEcole-V1\src\Vues\Moniteur" />
       <recent name="C:\Matiere Java\Bts AutoEcole V1\BTS-Java-AutoEcole-V1\src\Vues\Eleve" />
@@ -166,7 +133,14 @@
       <workItem from="1672399874764" duration="6359000" />
       <workItem from="1672513049455" duration="718000" />
       <workItem from="1672991077829" duration="249000" />
-      <workItem from="1678091591818" duration="1953000" />
+      <workItem from="1678091591818" duration="2752000" />
+      <workItem from="1678960625344" duration="1515000" />
+      <workItem from="1679652405158" duration="4122000" />
+      <workItem from="1679917386276" duration="1341000" />
+      <workItem from="1679985111275" duration="12146000" />
+      <workItem from="1680085456317" duration="4409000" />
+      <workItem from="1680258346327" duration="1133000" />
+      <workItem from="1680504169725" duration="71000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout du FrmConnexion">
       <created>1668424280328</created>
@@ -329,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670359146099</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Projet Complet 2.0">
+      <created>1678099288809</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678099288809</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +346,7 @@
     <MESSAGE value="Projet Complet 1.5" />
     <MESSAGE value="Projet Complet 1.6" />
     <MESSAGE value="Projet Complet 1.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="Projet Complet 1.7" />
+    <MESSAGE value="Projet Complet 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projet Complet 2.0" />
   </component>
 </project>

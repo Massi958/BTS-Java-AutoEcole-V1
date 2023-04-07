@@ -4,9 +4,14 @@ import Controlers.CtrlUser;
 import Entities.Users;
 import Vues.Eleve.FrmEleve;
 import Vues.Moniteur.FrmMoniteur;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JTextFieldDateEditor;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class FrmUsersUpdate extends JFrame {
     private JPanel pnlRoot;
@@ -35,21 +40,37 @@ public class FrmUsersUpdate extends JFrame {
     private JTextField txtCodeUser;
     private JTextField txtEmail;
     private JLabel lblEmail;
+    private JPanel pnldate;
     private CtrlUser ctrlUser;
+    private JDateChooser cldDate;
     public FrmUsersUpdate(Users unUser) {
-        this.setTitle("Modification de l'utilisateur");
+        this.setTitle("Modifications de l'utilisateur");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         ctrlUser = new CtrlUser();
+        cldDate = new JDateChooser();
+        cldDate.setDateFormatString("dd-MM-yyyy");
+        pnldate.add(cldDate);
+        ctrlUser = new CtrlUser();
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) cldDate.getDateEditor();
+        editor.setEditable(false);
+        cldDate.setMaxSelectableDate(java.sql.Date.valueOf(LocalDate.now().toString()));
 
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowOpened(WindowEvent e) {
                 super.windowOpened(e);
                 txtNom.setText(unUser.getNom());
-                txtDate.setText(unUser.getDateDeNaissance());
+                java.util.Date date2 = null;
+                try {
+                    date2 = new SimpleDateFormat("yyyy-MM-dd").parse(unUser.getDateDeNaissance());
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+                cldDate.setDate(date2);
+
                 txtAdresse.setText(unUser.getAdresse1());
                 txtCodeUser.setText(String.valueOf(unUser.getCodeUser()));
                 txtCodePostal.setText(unUser.getCodePostal());
@@ -91,9 +112,9 @@ public class FrmUsersUpdate extends JFrame {
                 if (txtNom.getText().compareTo("") == 0) {
                     JOptionPane.showMessageDialog(null, "Veuillez rentrez un Nom", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 } else if (txtPrenom.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un Prenom", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un Prénom", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else if (txtMdp.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, "Veuillez selectionner rentrez un mot de passe", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez rentrez un mot de passe", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else if (txtAdresse.getText().compareTo("") == 0) {
                     JOptionPane.showMessageDialog(null, "Veuillez rentrez une adresse", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else if (txtCodePostal.getText().compareTo("") == 0) {
@@ -102,12 +123,14 @@ public class FrmUsersUpdate extends JFrame {
                     JOptionPane.showMessageDialog(null, "Veuillez rentrez une ville", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else if (txtNum.getText().compareTo("") == 0) {
                     JOptionPane.showMessageDialog(null, "Veuillez rentrez un Numero de telephone", "Votre choix", JOptionPane.WARNING_MESSAGE);
-                }else if (txtDate.getText().compareTo("") == 0) {
+                }else if (cldDate==null) {
                     JOptionPane.showMessageDialog(null, "Veuillez rentrez une Date", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else {
-                 ctrlUser.ModifierProfil(Integer.valueOf(txtCodeUser.getText()),txtNom.getText(),txtPrenom.getText(),txtEmail.getText(),txtMdp.getText(),unUser.getStatut(),cboSexe.getSelectedItem().toString(),txtDate.getText(),txtAdresse.getText(),txtCodePostal.getText(),txtVille.getText(),txtNum.getText());
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(cldDate.getDate());
+                 ctrlUser.ModifierProfil(Integer.valueOf(txtCodeUser.getText()),txtNom.getText(),txtPrenom.getText(),txtEmail.getText(),txtMdp.getText(),unUser.getStatut(),cboSexe.getSelectedItem().toString(),date,txtAdresse.getText(),txtCodePostal.getText(),txtVille.getText(),txtNum.getText());
                  String[] options = {"Modifier une Nouvelle fois votre Profil", "Revenir au menu Principal"};
-                 int x = JOptionPane.showOptionDialog(null, "Votre Profil a bien été Modifier",
+                 int x = JOptionPane.showOptionDialog(null, "Votre Profil a bien été Modifié",
                             "Votre Choix",
                             JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                     if ( x == 1){

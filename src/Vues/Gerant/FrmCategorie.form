@@ -39,7 +39,7 @@
               <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Modifier la Categorie"/>
+              <text value="Modifier la Catégorie"/>
             </properties>
           </component>
           <component id="9a25d" class="javax.swing.JLabel" binding="lblAjouter">
@@ -47,7 +47,7 @@
               <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Ajouter une Categorie"/>
+              <text value="Ajouter une Catégorie"/>
             </properties>
           </component>
           <component id="7474e" class="javax.swing.JLabel" binding="lblCategorie">
@@ -55,7 +55,7 @@
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Code Categorie"/>
+              <text value="Code Catégorie"/>
             </properties>
           </component>
           <component id="a447a" class="javax.swing.JTextField" binding="txtCodeCategorie">
@@ -91,7 +91,7 @@
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="prix"/>
+              <text value="Prix"/>
             </properties>
           </component>
           <component id="97534" class="javax.swing.JTextField" binding="txtPrix">

@@ -91,7 +91,7 @@ public class FrmAjoutLicence extends JFrame{
                     ctrlUser.AjoutLicence(ctrlUser.GetCodeByLibelle(cboLicence.getSelectedItem().toString()), unUser.getCodeUser(),dateObtention);
                     String[] options = {"Voir vos Licences Possedées", "Revenir au menu Principal"};
 
-                    int x = JOptionPane.showOptionDialog(null, "Votre Licence a été ajouter",
+                    int x = JOptionPane.showOptionDialog(null, "Votre Licence a été ajouteée",
                             "Votre Choix",
                             JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                     if ( x == 1){

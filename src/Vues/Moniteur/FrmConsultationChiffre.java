@@ -33,7 +33,7 @@ public class FrmConsultationChiffre extends JFrame{
     private CtrlUser ctrlUser;
 
     public FrmConsultationChiffre(Users unUser) {
-        this.setTitle("Moniteur stats");
+        this.setTitle("Moniteur statistique");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -81,7 +81,7 @@ public class FrmConsultationChiffre extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(cldDateFin.getDate()==null || cldDateDebut.getDate()==null){
-                    JOptionPane.showMessageDialog(null, "Choisissez une date de debut et de fin ", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Choisissez une date de début et de fin ", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     String dateDebut = sdf.format(cldDateDebut.getDate());

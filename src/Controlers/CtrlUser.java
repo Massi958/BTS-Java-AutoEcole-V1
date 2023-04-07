@@ -752,6 +752,31 @@ public class CtrlUser {
         }
         return datas;
     }
+    public ArrayList<String> GetDataGraphiqueMoniteur(){
+        ArrayList<String> leMoniteur = new ArrayList<>();
+        try {
+            ps = cnx.prepareStatement("SELECT Count(lecon.Immatriculation) as Stats,users.Nom,users.Prenom\n" +
+                    "FROM lecon\n" +
+                    "INNER JOIN participe on lecon.CodeLecon=participe.CodeLecon\n" +
+                    "INNER JOIN users on participe.CodeUser=users.CodeUser\n" +
+                    "GROUP BY participe.CodeUser\n" +
+                    "ORDER BY COUNT(participe.CodeUser) DESC\n" +
+                    "LIMIT 1;");
+            rs = ps.executeQuery();
+            while ((rs.next())){
+                String Stats = rs.getString("Stats");
+                leMoniteur.add(Stats);
+                String Nom = rs.getString("Nom");
+                leMoniteur.add(Nom);
+                String Prenom = rs.getString("Prenom");
+                leMoniteur.add(Prenom);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return leMoniteur;
+    }
 
 
 

@@ -36,7 +36,7 @@ public class ModelJTable extends AbstractTableModel {
     public  void loadDatasPlanning(ArrayList<Planning> lePlanning,Users unUser){
         ctrlUser = new CtrlUser();
         if (unUser.getStatut().equals("moniteur")){
-            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Eleve"};
+            nomsColonnes = new String[]{"Date de la leçon","Heure de la leçon", "Véhicule","Elève"};
             rows = new Object[lePlanning.size()][4];
             int i = 0;
             for (Planning planning: lePlanning){
@@ -47,8 +47,8 @@ public class ModelJTable extends AbstractTableModel {
 
                 i++;
             }
-        }else if(unUser.getStatut().equals("eleve")){
-            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Moniteur"};
+        }else if(unUser.getStatut().equals("elève")){
+            nomsColonnes = new String[]{"Date de la leçon","Heure de la leçon", "Véhicule","Moniteur"};
             rows = new Object[lePlanning.size()][4];
             int i = 0;
             for (Planning planning: lePlanning){
@@ -60,7 +60,7 @@ public class ModelJTable extends AbstractTableModel {
                 i++;
             }
         }else{
-            nomsColonnes = new String[]{"Date de la lecon","Heure de la lecon", "Vehicule","Participant"};
+            nomsColonnes = new String[]{"Date de la leçon","Heure de la leçon", "Véhicule","Participant"};
             rows = new Object[lePlanning.size()][4];
             int i = 0;
             for (Planning planning: lePlanning){
@@ -76,7 +76,7 @@ public class ModelJTable extends AbstractTableModel {
     }
 
     public  void loadDatasLicence(ArrayList<Licence> lesLicencePossede){
-        nomsColonnes = new String[]{"Categorie","Date d'obtention"};
+        nomsColonnes = new String[]{"Catégorie","Date d'obtention"};
         rows = new Object[lesLicencePossede.size()][2];
         int i = 0;
         for (Licence licence: lesLicencePossede){
@@ -86,7 +86,7 @@ public class ModelJTable extends AbstractTableModel {
         }
     }
     public  void loadDatasCategorie(ArrayList<Categorie> lesCategorie){
-        nomsColonnes = new String[]{"Code Categorie","Libelle","Prix"};
+        nomsColonnes = new String[]{"Code Catégorie","Libellé","Prix"};
         rows = new Object[lesCategorie.size()][3];
         int i = 0;
         for (Categorie categorie: lesCategorie){
@@ -99,7 +99,7 @@ public class ModelJTable extends AbstractTableModel {
 
     public  void loadDatasVehicule(ArrayList<Vehicule> lesVehicule){
         ctrlVehicule = new CtrlVehicule();
-        nomsColonnes = new String[]{"Marque","Model","Immatriculation","Annee","Categorie"};
+        nomsColonnes = new String[]{"Marque","Modéle","Immatriculation","Anneé","Catégorie"};
         rows = new Object[lesVehicule.size()][5];
         int i = 0;
         for (Vehicule vehicule: lesVehicule){

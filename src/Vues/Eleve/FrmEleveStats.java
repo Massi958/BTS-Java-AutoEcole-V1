@@ -40,7 +40,7 @@ public class FrmEleveStats extends JFrame{
 
 
     public FrmEleveStats(Users unUser) {
-        this.setTitle("Eleve Stats");
+        this.setTitle("Elève Statistique");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -100,14 +100,14 @@ public class FrmEleveStats extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (txtLeconsFaites.getText().equals("")){
-                    JOptionPane.showMessageDialog(null, "Veuillez Selectionner un Type de permis", "Votre choix", JOptionPane.WARNING_MESSAGE);                }else {
+                    JOptionPane.showMessageDialog(null, "Veuillez Sélectionner un type de permis", "Votre choix", JOptionPane.WARNING_MESSAGE);                }else {
                     DefaultPieDataset donnees = new DefaultPieDataset();
                     for (Map.Entry valeur : ctrlUser.GetDatasGraphiqueEleve2(unUser.getCodeUser(),ctrlUser.GetCodeByLibelle(String.valueOf(cboTypePermis.getSelectedItem()))).entrySet())
                     {
                         donnees.setValue(valeur.getKey().toString(), Integer.parseInt((valeur.getValue().toString()).trim()));
                     }
                     JFreeChart chart1 = ChartFactory.createRingChart(
-                            "Nombre Lecons faites et à venir",
+                            "Nombre Leçons faites et à venir",
                             donnees,
                             true, // légende
                             true, // info bulle
@@ -130,7 +130,7 @@ public class FrmEleveStats extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (txtLeconsFaites.getText().equals("")){
-                    JOptionPane.showMessageDialog(null, "Veuillez Selectionner un Type de permis", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez Sélectionner un type de permis", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else {
                     DefaultPieDataset donnees = new DefaultPieDataset();
                     for (Map.Entry valeur : ctrlUser.GetDatasGraphiqueEleve(unUser.getCodeUser(),ctrlUser.GetCodeByLibelle(String.valueOf(cboTypePermis.getSelectedItem()))).entrySet())
@@ -138,7 +138,7 @@ public class FrmEleveStats extends JFrame{
                         donnees.setValue(valeur.getKey().toString(), Integer.parseInt((valeur.getValue().toString()).trim()));
                     }
                     JFreeChart chart1 = ChartFactory.createRingChart(
-                            "Nombre de Lecons Payées et Non Payées",
+                            "Nombre de Leçons Payées et Non Payées",
                             donnees,
                             true, // légende
                             true, // info bulle
@@ -159,7 +159,7 @@ public class FrmEleveStats extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (txtLeconsFaites.getText().equals("")){
-                    JOptionPane.showMessageDialog(null, "Veuillez Selectionner un Type de permis", "Votre choix", JOptionPane.WARNING_MESSAGE);                }else {
+                    JOptionPane.showMessageDialog(null, "Veuillez Sélectionner un type de permis", "Votre choix", JOptionPane.WARNING_MESSAGE);                }else {
                     double prixpaye = ctrlUser.GetPrixLibelle(cboTypePermis.getSelectedItem().toString()) * Integer.valueOf(txtLeconsPayees.getText());
                     double d = (double) Math.round(prixpaye * 100) / 100;
                     double prixNonPaye = ctrlUser.GetPrixLibelle(cboTypePermis.getSelectedItem().toString()) * Integer.valueOf(txtLeconsNonPayees.getText());
@@ -171,7 +171,7 @@ public class FrmEleveStats extends JFrame{
 
                     }
                     JFreeChart chart1 = ChartFactory.createRingChart(
-                            "Prix Total des lecons Payées et Non Payées",
+                            "Prix Total des leçons Payées et Non Payées",
                             donnees,
                             true, // légende
                             true, // info bulle

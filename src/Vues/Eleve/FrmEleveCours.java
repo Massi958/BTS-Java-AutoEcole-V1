@@ -38,7 +38,7 @@ public class FrmEleveCours extends JFrame{
     private CtrlUser ctrlUser;
 
     public FrmEleveCours(Users unUser) {
-        this.setTitle("Eleve Cours");
+        this.setTitle("Elève réservation de leçons");
         this.setContentPane(pnlRoot);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -80,7 +80,7 @@ public class FrmEleveCours extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if ((cboPermis.getSelectedItem()==null) || (cboHeure.getSelectedItem()==null) || txtPrix.getText().equals("") || cldDate.getDate() == null){
-                    JOptionPane.showMessageDialog(null, "Veuillez Selectionner un type de permis une date et une heure", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez Sélectionner un type de permis une date et une heure", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else{
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     String dateLecon = sdf.format(cldDate.getDate());
@@ -98,7 +98,7 @@ public class FrmEleveCours extends JFrame{
                         }else {
                         String[] options = {"Ok", "Voir Mon Planning"};
 
-                        int x = JOptionPane.showOptionDialog(null, "Vous avez deja une lecon a cette heure regardez votre planning pour plus d'information",
+                        int x = JOptionPane.showOptionDialog(null, "Vous avez déjà une leçon à cette heure regardez votre planning pour plus d'information.",
                                 "Votre Choix",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                         if ( x == 1){
@@ -128,7 +128,7 @@ public class FrmEleveCours extends JFrame{
 
                 super.mouseClicked(e);
                 if ((cboChoixMoniteur.getSelectedItem()==null) || (cboChoixCategories.getSelectedItem()==null)){
-                    JOptionPane.showMessageDialog(null, "Veuillez Selectionner un moniteur et un vehicule", "Votre choix", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez Sélectionner un moniteur et un véhicule", "Votre choix", JOptionPane.WARNING_MESSAGE);
                 }else {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     String dateLecon = sdf.format(cldDate.getDate());
@@ -136,7 +136,7 @@ public class FrmEleveCours extends JFrame{
 
                     ctrlUser.AjoutParticipe(unUser.getCodeUser(), ctrlUser.GetDerniereLecon() );
                     ctrlUser.AjoutParticipe(ctrlUser.GetCodeByPrenom(cboChoixMoniteur.getSelectedItem().toString()),ctrlUser.GetDerniereLecon());
-                    String[] options = {"Reprendre une Lecon", "Revenir au menu Principal"};
+                    String[] options = {"Reprendre une Leçon", "Revenir au menu Principal"};
 
                     int x = JOptionPane.showOptionDialog(null, "Votre Lecon a bien été prise",
                             "Votre Choix",
