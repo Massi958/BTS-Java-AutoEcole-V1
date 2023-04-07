@@ -41,7 +41,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="anneduvolant@gmail.com"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="7b995" class="javax.swing.JPasswordField" binding="pwdMotDePasse">
@@ -51,7 +51,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="1234"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="95bb2" class="javax.swing.JLabel" binding="lblIdentifiant">
